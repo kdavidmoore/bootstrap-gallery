@@ -1,0 +1,29 @@
+body {
+	padding-top: 40px;
+}
+
+.navbar-inverse {
+	background-color: #493829;
+}
+
+/* .navbar-inverse.navbar-brand {
+	color: #e0e0e0;
+}
+
+.nav.navbar-nav li a {
+	color: #e0e0e0;
+} */
+
+#gallery-container {
+	padding-bottom: 10px;
+}
+
+.row div {
+	padding-top: 10px;
+}
+
+img {
+	width: 100%;
+	border: 1px solid #a9a18c;
+}
+
