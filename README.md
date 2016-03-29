@@ -1,8 +1,8 @@
 # Bootstrap Gallery
 
-## Class project and homework for March 9, 2016 (Unit 1)
+## Refactored with AngularJS
 
-This page presents a Bootstrap photo gallery.
+This page presents a photo gallery built written AngularJS and UI Bootstrap (Bootstrap components written in pure AngularJS).
 
 ##Demo here
 
