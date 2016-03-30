@@ -1,5 +1,6 @@
-var myApp = angular.module('myApp', []);
-myApp.controller('myController', function($scope){
+var myApp = angular.module('myApp', ['ui.bootstrap']);
+
+myApp.controller('thumbCtrl', function($scope){
 	$scope.images = [
 	{
 		source: "image1",
@@ -34,5 +35,28 @@ myApp.controller('myController', function($scope){
 		caption: "Conglomerates of Hance Creek in Grand Canyon"
 	}
 	];
+})
 
+myApp.controller('modalCtrl', function($scope, $uibModal) {
+
+	$scope.open = function(i) {
+		var modalInstance = $uibModal.open({
+			controller: 'modalInstanceCtrl',
+			size: 'lg',
+			resolve: {
+				cities: function() {
+					return $scope.cities[i];
+				}
+			}
+		});
+	}
+})
+
+myApp.controller('modalInstanceCtrl', function($scope, $uibModalInstance){
+
+	$scope.cities = cities;
+
+	$scope.cancel = function () {
+    	$uibModalInstance.dismiss('cancel');
+ 	};
 })

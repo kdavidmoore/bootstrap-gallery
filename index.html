@@ -6,48 +6,60 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Rocks and Stuff</title>
 
+		<script src="js/angular.min.js"></script>
+		<script src="js/ui-bootstrap-tpls-1.2.5.min.js"></script>
+		<script type="text/javascript" src="js/controller.js"></script>
+
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="custom.css">
-
-		<script src="js/angular.min.js"></script>
-		<script src="js/ui-bootstrap-tpls-1.2.5.min"></script>
-		<script type="text/javascript" src="js/controller.js"></script>
 	</head>
 
     <body>
 	    <nav class="navbar navbar-inverse navbar-fixed-top">
 	    	<div class="container">
 	    		<div class="navbar-header">
-	    			<a class="navbar-brand" href="#">Rocks and Stuff</a>
+	    			<a class="navbar-brand">Rocks and Stuff</a>
 	    		</div>
 	    		<div id="navbar">
 	    			<ul class="nav navbar-nav">
 		    			<li class="active">
-		    				<a href="#">Rocks</a>
+		    				<a>Rocks</a>
 		    			</li>
 		    			<li>
-		    				<a href="#">Dams</a>
+		    				<a>Dams</a>
 		    			</li>
 	    			</ul>
 	    		</div>
 	    	</div>
 	    </nav>
-	    <div class="container" ng-controller="myController">
-	    	<div class="row">
-	    		<div class="col-md-12 text-center">
-	    			<h1>Rocks and Stuff</h1>
-	    		</div>
-	    		<div class="col-lg-3 col-md-4 col-xs-12" ng-repeat="image in images track by $index">
-	    			<div class="thumbnail">
-		    			<a data-toggle="modal" data-target="#myModal" href="img/{{image.source}}.jpg">
-		    				<img class="launch-modal" ng-src="img/{{image.source}}.jpg">
-		    			</a>
-		    			<div class="caption">
-		    				<h5>{{image.caption}}</h5>
+
+	    <div ng-controller="modalCtrl">
+		    <script type="text/ng-template" id="myModalContent.html">
+		    	<div class="modal-header">
+		        	<button class="btn btn-primary" type="button" ng-click="cancel()">x</button>
+		        </div>
+		        <div class="modal-body">
+		            <img ng-src="img/{{cities[0]}}.jpg">
+		        </div>
+	    	</script>
+
+		    <div class="container" ng-controller="thumbCtrl">
+		    	<div class="row">
+		    		<div class="col-md-12 text-center">
+		    			<h1>Rocks and Stuff</h1>
+		    		</div>
+		    		<div class="col-lg-3 col-md-4 col-xs-12" ng-repeat="image in images track by $index">
+		    			<div class="thumbnail">
+			    			<a href="" ng-click="open($index)">
+			    				<img ng-src="img/{{image.source}}.jpg">
+			    			</a>
+			    			<div class="caption">
+			    				<h5>{{image.caption}}</h5>
+			    			</div>
 		    			</div>
-	    			</div>
-	    		</div>
-	    	</div>
+		    		</div>
+		    	</div>
+			</div>
 		</div>
     </body>
 </html>
